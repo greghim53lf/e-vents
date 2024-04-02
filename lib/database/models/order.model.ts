@@ -1,4 +1,4 @@
-import { model } from "mongoose";
+import { Document, model } from "mongoose";
 import { Schema, models } from "mongoose";
 
 export interface IOrder extends Document {
