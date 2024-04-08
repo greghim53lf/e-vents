@@ -25,7 +25,7 @@ export type CreateEventParams = {
     imageUrl: string;
     startDateTime: Date;
     endDateTime: Date;
-    categoryId: string;
+    categoryName: string;
     price: string;
     isFree: boolean;
     url: string;
@@ -43,7 +43,7 @@ export type UpdateEventParams = {
     location: string;
     startDateTime: Date;
     endDateTime: Date;
-    categoryId: string;
+    categoryName: string;
     price: string;
     isFree: boolean;
     url: string;
@@ -59,7 +59,7 @@ export type DeleteEventParams = {
 export type GetAllEventsParams = {
   query: string;
   category: string;
-  limit: number;
+  limit?: number;
   page: number;
 };
 
@@ -113,7 +113,7 @@ export type CheckoutOrderParams = {
 };
 
 export type CreateOrderParams = {
-  stripeId: string;
+  paystackRef: string;
   eventId: string;
   buyerId: string;
   totalAmount: string;

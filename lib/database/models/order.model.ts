@@ -2,8 +2,6 @@ import { Document, model } from "mongoose";
 import { Schema, models } from "mongoose";
 
 export interface IOrder extends Document {
-  createdAt: Date;
-  paystackRef: string;
   totalAmount: string;
   event: {
     _id: string;
@@ -14,15 +12,12 @@ export interface IOrder extends Document {
     firstName: string;
     lastName: string;
   };
+  paid: boolean;
+  paystackRef: string;
+  createdAt: Date;
 }
 
 const OrderSchema = new Schema({
-  createdAt: { type: Date, default: Date.now },
-  paystackRef: {
-    type: String,
-    required: true,
-    unique: true,
-  },
   totalAmount: {
     type: String,
   },
@@ -34,6 +29,15 @@ const OrderSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
+  paid: {
+    type: Boolean,
+    default: false,
+  },
+  paystackRef: {
+    type: String,
+    unique: true,
+  },
+  createdAt: { type: Date, default: Date.now },
 });
 
 const Order = models.Order || model("Order", OrderSchema);

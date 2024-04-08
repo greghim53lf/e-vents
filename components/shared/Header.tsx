@@ -11,7 +11,6 @@ export default function Header() {
       <div className="wrapper flex-between">
         <Link href="/" className="w-36">
           <Image
-            priority
             src="/assets/images/logo.svg"
             width={128}
             height={38}
